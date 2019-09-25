@@ -24,10 +24,8 @@ const breedDetailsFromFile = function(breed, callback) {
     // CHANGE 1: Pass data back via callback instead of return.
     console.log('Callback: I have the data!');
     if (!error) callback(data);
+    if (error) callback(undefined);
   });
 };
 
-// CHANGE 2: Value now comes back via callback, not return value
-breedDetailsFromFile('Bombay', (bombay) => {
-  console.log('Return Value: ', bombay); // => print out details correctly.
-});
+module.exports = breedDetailsFromFile;
